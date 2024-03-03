@@ -48,4 +48,4 @@ tecnologias diferentes, tanto para dispositivos IoT como para cualquier otro tip
 
 Eduardo Manuel Cabeza Lopez.
 
-Para cualquier pregunta o sugerencia sobre el proyecto, deja un comentario en la siguiente *issue*: [Preguntas y sugerencias]([#5](https://github.com/eddddddp/AI-for-IoT-security/issues/5)https://github.com/eddddddp/AI-for-IoT-security/issues/5)
+Para cualquier pregunta o sugerencia sobre el proyecto, deja un comentario en la siguiente *issue*: ![Preguntas y sugerencias](https://github.com/eddddddp/AI-for-IoT-security/issues/5)
