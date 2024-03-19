@@ -8,8 +8,9 @@
 
 ## Introducción
 
-Este Trabajo de Fin de Grado (TFG) se centra en la seguridad criptográfica en las tecnologías de comunicación IoT, con un enfoque centrado en las tecnologías LoRaWAN y NB-IoT. 
-El objetivo principal es investigar y entender las vulnerabilidades y los posibles ataques a dispositivos que implementan estas tecnologías.
+Este Trabajo de Fin de Grado (TFG) se centra en la seguridad en las tecnologías de comunicación IoT. 
+El objetivo principal es investigar y entender las vulnerabilidades y los posibles ataques a dispositivos que
+implementan estas tecnologías y aplicar técnicas de aprendizaje automático para la detección de ataques en redes de dispositivos IoT.
 
 ## Objetivos
 
@@ -22,16 +23,15 @@ El proyecto persigue varios objetivos:
 
 ## Metodología
 
-El trabajo comenzará con una búsqueda y revisión de la bibliografía sobre la seguridad criptográfica en LoRaWAN y NB-IoT. 
-Esta revisión permitirá obtener un conocimiento profundo de las vulnerabilidades existentes y los tipos de ataques a los que son susceptibles este tipo de dispositivos.
+El trabajo comenzará con una búsqueda y revisión de la bibliografía sobre la seguridad en dispositivos IoT
+así como trabajos relacionados en los que se aplican técnicas de Machine Learning y Deep Learning. 
+Esta revisión permitirá obtener un conocimiento profundo de las vulnerabilidades existentes y los tipos de
+ataques a los que son susceptibles este tipo de dispositivos y que técnicas han sido efectivas en la detección de estos ataques.
 
-Una vez finalizado el proceso de investigación, se propondrán mecanismos de detección de compromiso de claves mediante técnicas de Machine Learning. 
-Estos mecanismos permitirán identificar casos en los que las claves pueden haber sido comprometidas.
+Una vez finalizado el proceso de investigación, se propondrán mecanismos de detección de ataques en redes de dispositivos IoT mediante técnicas de ML o DL. 
 
-En los casos en los que se detecte un compromiso de las claves, se utilizarán técnicas para mitigar los efectos del ataque o, 
-en caso de ser detectado antes de que se produzca, se aplicarán las técnicas necesarias para evitar que se materialice el ataque y se vea comprometida la seguridad del dispositivo. 
-Una de las posibles técnicas a utilizar cuando el ataque ya se ha producido, existiendo el riego de que las claves hayan sido expuestas, 
-podría ser la regeneración de las claves.
+Posteriormente se tratará de aplicar algunas medidas preventivas para mitigar los efectos del ataque cuando se detecta que se ha producido aplicando
+las técnicas necesarias como regeneración de claves o modificación de politicas de seguridad.
 
 ## Contribuciones
 
