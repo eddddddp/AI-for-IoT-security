@@ -1,6 +1,5 @@
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
-import tensorflow as tf
 import pandas as pd
 import ipaddress
 
@@ -14,10 +13,10 @@ def ipv4_to_octets(ip):
     except ValueError:
         print('Se ha encontrado una IP no válida en el dataset')
 
-    
+# Función que realiza el one-hot encoding a las características del dataframe pasado por parámetro    
 def one_hot_encode(data):
-    # Obtener encoder
-    encoder = OneHotEncoder(sparse_output=False)
+    # Obtener encoder. Se eliminan las columnas “dummy” con la opción drop
+    encoder = OneHotEncoder(sparse_output=False, drop='first')
     # Codificar las columnas de data
     data_encoded = encoder.fit_transform(data)
     # Convertir a dataframe de pandas 
