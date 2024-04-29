@@ -26,13 +26,10 @@ dtest = xgb.DMatrix(dtest, label=test_targets)
 params = {
     'booster':'gbtree', # Booster General Balanced Trees
     'objective':'binary:logistic', # Clasificación binaria
-    'colsample_bytree': 0.5, # Porcentage de características usadas para construir cada árbol
-    'learning_rate': 0.1, # Tasa de aprendizaje
-    'max_depth': 100, 
-    'verbosity': 2, # 0 (silent), 1 (warning), 2 (info), 3 (debug)
-    'gamma': 0, # Parámetro gamma. Controla la reducción de perdida mínima requerida para realizar una nueva división en un nodo del árbol
-    'alpha': 0, # Término de regularización L1
-    'lambda': 0, # Término de regularización L2 
+    'colsample_bytree': 0.6, # Porcentage de características usadas para construir cada árbol
+    'learning_rate': 0.025, # Tasa de aprendizaje
+    'max_depth': 20, # Profundidad máxima de árbol
+    'verbosity': 2, # 0 (silent), 1 (warning), 2 (info), 3 (debug)        
     'device' : 'cuda', # Entrenamiento en GPU CUDA    
 }
 
@@ -42,7 +39,7 @@ t_ini = time.time()
 # Entrenar modelo
 # num_boost_round indica el número de rondas de boosting
 # early_stopping_rounds indica el número de rondas sin reducción del objetivo para realizar una parada anticipada
-xg_reg = xgb.train(params=params, dtrain=dtrain, num_boost_round=500, early_stopping_rounds=5, evals=evaluation)
+xg_reg = xgb.train(params=params, dtrain=dtrain, num_boost_round=300, early_stopping_rounds=5, evals=evaluation)
 # Obtener tiempo de entrenamiento
 t_train = time.time()-t_ini
 print(f'Tiempo de entrenamiento: {t_train:2f}')
