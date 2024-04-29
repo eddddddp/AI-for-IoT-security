@@ -8,6 +8,6 @@ def metrics(objetivo, prediction):
     disp.plot()
     plt.show()
     score = accuracy_score(objetivo, prediction)
-    reporte = classification_report(objetivo, prediction)
+    reporte = classification_report(objetivo, prediction, digits=6)
     metricas = [cm, score, reporte]
     return(metricas)
