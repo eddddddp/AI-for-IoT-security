@@ -9,17 +9,17 @@
 ## Introducción
 
 Este Trabajo de Fin de Grado (TFG) se centra en la seguridad en las tecnologías de comunicación IoT. 
-El objetivo principal es investigar y entender las vulnerabilidades y los posibles ataques a dispositivos que
+El objetivo principal es investigar sobre los posibles ataques a dispositivos que
 implementan estas tecnologías y aplicar técnicas de aprendizaje automático para la detección de ataques en redes de dispositivos IoT.
 
 ## Objetivos
 
 El proyecto persigue varios objetivos:
 
-1. Realizar una revisión bibliográfica exhaustiva sobre la seguridad criptográfica en LoRaWAN y NB-IoT.
-2. Investigar las vulnerabilidades existentes y los ataques que se han realizado en estas redes.
-3. Proponer mecanismos de detección de compromiso de claves mediante técnicas de Machine Learning.
-4. Desarrollar técnicas para mitigar los efectos de los ataques en caso de detección de compromiso de claves.
+1. Realizar una revisión bibliográfica exhaustiva sobre seguridad y técnicas de machine learning para proteger dispositivos IoT.
+2. Investigar las técnicas existentes y como implementarlas con exito para detectar tráfico malicioso en redes IoT.
+3. Determinar la viabilidad de detección de ataques mediante clasificación de tráfico de red.
+4. Establecer los siguientes pasos y trabajos para implementar este tipo de técnicas a redes reales.
 
 ## Metodología
 
@@ -28,10 +28,7 @@ así como trabajos relacionados en los que se aplican técnicas de Machine Learn
 Esta revisión permitirá obtener un conocimiento profundo de las vulnerabilidades existentes y los tipos de
 ataques a los que son susceptibles este tipo de dispositivos y que técnicas han sido efectivas en la detección de estos ataques.
 
-Una vez finalizado el proceso de investigación, se propondrán mecanismos de detección de ataques en redes de dispositivos IoT mediante técnicas de ML o DL. 
-
-Posteriormente se tratará de aplicar algunas medidas preventivas para mitigar los efectos del ataque cuando se detecta que se ha producido aplicando
-las técnicas necesarias como regeneración de claves o modificación de politicas de seguridad.
+Una vez finalizado el proceso de investigación, se propondrán mecanismos de detección de ataques en redes de dispositivos IoT mediante técnicas de ML. 
 
 ## Contribuciones
 
