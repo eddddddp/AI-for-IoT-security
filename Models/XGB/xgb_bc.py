@@ -1,24 +1,39 @@
-from matplotlib import pyplot as plt
-from sklearn.metrics import auc, precision_recall_curve, roc_curve
 from sklearn.model_selection import train_test_split
 import xgboost as xgb
 import pandas as pd
 import os, sys, time
 import pickle
-
 # Agregar directorio padre a al path de búsqueda
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import model_utils
 
+'''
+Script que instancia, entrena y valida un booster de árboles de decisión equilibrados.
+Tras el entrenamiento y validación se muestran las siguientes métricas de rendimiento:
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- Matriz de confusión
+- Macro average
+- Weighted average
+- Curva PR
+- Curva ROC
+Para guardar el modelo tras el entrenamiento, descomentar las últimas líneas del código
+antes de la ejecución del script. Tras la ejecución se recomienda volver a comentar
+estas líneas para evitar sobreescribir los modelos guardados al realizar pruebas que 
+no se quieran guardar.
+'''
+
 # Carga de datos
+print('Cargando datos...')
 dtrain = pd.read_csv('..'+os.sep+'..'+os.sep+'data'+os.sep+'bal_train_norm.csv')
-
-
 dtest = pd.read_csv('..'+os.sep+'..'+os.sep+'data'+os.sep+'bal_train_norm.csv')
 
 # Obtener una pequeña partición de evaluación a partir del conjunto de test
-dtest, deval = train_test_split(dtest,train_size=0.8,stratify=dtest['label'])
+dtest, deval = train_test_split(dtest,train_size=0.9,stratify=dtest['label'])
 
+# Obtener etiquetas o targets
 train_targets = dtrain.pop('label')
 eval_targets = deval.pop('label')
 test_targets = dtest.pop('label')
@@ -39,29 +54,38 @@ params = {
     'device' : 'cuda', # Entrenamiento en GPU CUDA  
     'eval_metric':'logloss'  
 }
+
+# Crear el modelo
+print('Creando el modelo...')
 model = xgb.XGBClassifier()
 evaluation = [(deval, "eval"), (dtrain, "train")]
 # Obtener tiempo de inicio
 t_ini = time.time()
+
 # Entrenar modelo
-# num_boost_round indica el número de rondas de boosting
-# early_stopping_rounds indica el número de rondas sin reducción del objetivo para realizar una parada anticipada
+print('Entrenando el modelo...')
 xgb_model = xgb.train(params=params, dtrain=dtrain, num_boost_round=300, evals=evaluation)
 # Obtener tiempo de entrenamiento
 t_train = time.time()-t_ini
 print(f'Tiempo de entrenamiento: {t_train:2f}')
+
 #Evaluar modelo con datos de test
+print('Evaluando el modelo...')
 predictions = xgb_model.predict(dtest)
 # Para valores de probabilidad de clase 1 mayor que 0.5 se predice la calse 1 y 0 en cualquier otro caso
 predictions = [1 if i > .5 else 0 for i in predictions]
-# Obtener metricas de evaluación
+
+# Obtener y mostrar métricas de rendimiento
 metricas = model_utils.metrics(test_targets, predictions)
+print('Resultados:')
 [print(i) for i in metricas]
 
+# Mostrar curvas PR y ROC
 model_utils.pr_roc_curves(predictions, test_targets)
 
+
+# Guardar el modelo. Descomentar para guardar el modelo.
 '''
-# Guardar el modelo
 with open('xgb_model_bc_logloss.pkl', 'wb') as file:
     pickle.dump(xgb_model, file)
 '''
