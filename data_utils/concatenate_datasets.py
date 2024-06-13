@@ -7,7 +7,7 @@ Recibe en línea de comandos la ruta del directorio que contiene los ficheros .c
 y el nombre del fichero de salida
 
 Ejemplo de uso:
-python concatenate_datasets.py "..\data\network datasets" "..\data\all_data.csv"
+python concatenate_datasets.py "..\my_data_directory" "..\my_data_directory\concat_dataset.csv"
 '''
 
 #obtener argumentos
@@ -15,7 +15,7 @@ args = sys.argv
 
 # Directorio que contiene los archivos CSV
 directorio = args[1]
-print(args)
+
 # Lista para almacenar los DataFrames de cada archivo CSV
 dataframes = []
 
