@@ -15,13 +15,14 @@ py prepare_date.py "..\data\my_dataset.csv" "..\data\my_prepared_dataset.csv"
 args = sys.argv
 
 # Comprobar el número de parámetros recibidos
-if len(args) != 4:
-    print(f'Se esperaban 3 argumentos pero se obtuvieron {len(args)-1}')
-    print('Se esperaba <src data> <dst data> <target_flag>')
+if len(args) != 3:
+    print(f'Se esperaban 2 argumentos pero se obtuvieron {len(args)-1}')
+    print('Se esperaba <src data> <dst data>')
     exit(-1)
 
 # Cargar dataset
 data = pd.read_csv(args[1], low_memory=False)
+
 # Eliminar filas en las que src_bytes vale 0.0.0.0
 data = data[data['src_bytes'] != '0.0.0.0']
 
