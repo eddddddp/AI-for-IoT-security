@@ -13,8 +13,10 @@ def one_hot_encode(data):
     encoder = OneHotEncoder(sparse_output=False)
     # Codificar las columnas de data
     data_encoded = encoder.fit_transform(data)
+    # Obtener los nombres de las nuevas columnas
+    col_names = encoder.get_feature_names_out(data.columns)
     # Convertir a dataframe de pandas 
-    data_encoded = pd.DataFrame(data_encoded)
+    data_encoded = pd.DataFrame(data_encoded, columns=col_names)
     # Convertir los datos codificados de booleanos a números reales
     data_encoded = data_encoded.astype(float)
     # Devolver el dataframe
