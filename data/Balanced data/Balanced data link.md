@@ -1,5 +1,5 @@
 Enlace para la descarga  de los ficheros en formato csv:
-[Balanced datasets](https://universidaddeburgos-my.sharepoint.com/personal/ecl1009_alu_ubu_es/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fecl1009%5Falu%5Fubu%5Fes%2FDocuments%2FBalanced%20data&ga=1)
+[Balanced datasets](https://universidaddeburgos-my.sharepoint.com/:f:/g/personal/ecl1009_alu_ubu_es/ErMNb55RPN9FoEKPG2M7YA0B3t8f9wgDenNjRvSilwniOw?e=bKbyuN)
 
 Se tienen 4 ficheros csv. "balanced_data.csv" es el dataset balanceado obtenido del dataset original, 
 "balanced_processed.csv" es el resultado de procesar el dataset balanceado y finalmente se tiene otros 
