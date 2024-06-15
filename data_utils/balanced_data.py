@@ -13,10 +13,17 @@ py balanced_data.py "..\data\my_dataset.csv" "..\data\my_new_dataset.csv"
 '''
 
 # Recoger parámetros en línea de comandos
-# Esperado: <ruta origen dataset> <ruta destino dataset>
 args = sys.argv
 
+#Comprobar número de argumentos
+if len(args) != 3:
+    print(f'Número de argumentos incorrecto. Se esperaban 2, se obtienen {len(args)-1}')
+    print('Se esperaba <src_data> <dst data>')
+    exit(-1)
+
+# Cargar datos
 full_data = pd.read_csv(args[1], low_memory=False)
+
 # Filtramos los registros donde label es 0
 df_normal = full_data[full_data['label'] == 0]
 
