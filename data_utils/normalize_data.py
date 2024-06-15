@@ -10,6 +10,8 @@ py normalize_data.py "..\data\my_train_set.csv" "..\data\my_test_set.csv" "..\da
 '''
 # Obtener argumentos
 args = sys.argv
+
+# Comprobar número de argumentos
 if len(args) != 5:
     print(f'Número de argumentos incorrecto, se esperaban 4 pero se obtuvieron {len(args)-1}.')
     print('Se espera <src train_data> <src test_data> <dst train_norm_data> <dst test_norm_data>')
