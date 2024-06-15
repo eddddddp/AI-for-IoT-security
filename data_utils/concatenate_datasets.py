@@ -13,6 +13,12 @@ python concatenate_datasets.py "..\my_data_directory" "..\my_data_directory\conc
 #obtener argumentos
 args = sys.argv
 
+# Comprobar número de argumentos
+if len(args) != 3:
+    print(f'Número de argumentos incorrecto. Se esperaban 2, se obtienen {len(args)-1}')
+    print('Se esperaba <src data> <dst data>')
+    exit(-1)
+
 # Directorio que contiene los archivos CSV
 directorio = args[1]
 
