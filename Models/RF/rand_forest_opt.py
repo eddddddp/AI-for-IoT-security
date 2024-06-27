@@ -27,8 +27,10 @@ no se quieran guardar.
 '''
 # Carga de datos
 print('Cargando datos...')
-train_data = pd.read_csv('..' + os.sep + '..' + os.sep + 'data' + os.sep + 'bal_train_norm.csv')
-test_data = pd.read_csv('..' + os.sep + '..' + os.sep + 'data' + os.sep + 'bal_test_norm.csv')
+train_data = pd.read_csv('..' + os.sep + '..' + os.sep + 'data' + os.sep + 
+                         'bal_train_norm.csv')
+test_data = pd.read_csv('..' + os.sep + '..' + os.sep + 'data' + os.sep + 
+                        'bal_test_norm.csv')
 
 # Obtener etiquetas o targets
 y_train = train_data.pop('label')
@@ -56,7 +58,7 @@ pipeline_rfc = model_utils.make_pipeline(rfc)
 
 # Crear gridSearch para optimización de hiperparámetros
 print('Creando RandomizedSearchCV para optimización de hiperparámetros...')
-grid_rfc_pipe = RandomizedSearchCV(pipeline_rfc, params, cv=2, n_iter=15, n_jobs=6)
+grid_rfc_pipe = RandomizedSearchCV(pipeline_rfc, params, cv=2, n_iter=15, n_jobs=10)
 #Obtener mejores atributos
 print('Obteniendo la mejor combinación de atributos...')
 t_ini = time.time()
@@ -79,6 +81,6 @@ model_utils.pr_roc_curves(predictions,y_test)
 
 # Guardar el modelo entrenado. Descomentar para guardar el modelo.
 '''
-with open('rfc_model_attSel_opt_mal.pkl', 'wb') as file:
-    pickle.dump(grid_rfc_pipe, file)
+model_utils.save_model('..' + os.sep + 'Modelos entrenados' + os.sep + 
+                       'rfc_model_attSel_opt.pkl', grid_rfc_pipe)
 '''

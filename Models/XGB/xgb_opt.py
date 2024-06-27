@@ -30,8 +30,10 @@ no se quieran guardar.
 
 # Carga de datos
 print('Cargando datos...')
-dtrain = pd.read_csv('..'+os.sep+'..'+os.sep+'data'+os.sep+'bal_train_norm.csv')
-dtest = pd.read_csv('..'+os.sep+'..'+os.sep+'data'+os.sep+'bal_test_norm.csv')
+dtrain = pd.read_csv('..'+os.sep+'..'+os.sep+'data'+os.sep+
+                     'bal_train_norm.csv')
+dtest = pd.read_csv('..'+os.sep+'..'+os.sep+'data'+os.sep+
+                    'bal_test_norm.csv')
 
 # Obtener etiquetas o targets
 train_targets = dtrain.pop('label')
@@ -82,6 +84,6 @@ model_utils.pr_roc_curves(predictions,test_targets)
 
 # Guardar el modelo. Descomentar para guardar el modelo.
 '''
-with open('xgb_model_attSel_opt.pkl', 'wb') as file:
-    pickle.dump(rs_model, file)
+model_utils.save_model('..' + os.sep + 'Modelos entrenados' + os.sep + 
+                       'xgb_model_attSel_opt.pkl', rs_model)
 '''

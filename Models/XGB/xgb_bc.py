@@ -27,8 +27,10 @@ no se quieran guardar.
 
 # Carga de datos
 print('Cargando datos...')
-dtrain = pd.read_csv('..'+os.sep+'..'+os.sep+'data'+os.sep+'bal_train_norm.csv')
-dtest = pd.read_csv('..'+os.sep+'..'+os.sep+'data'+os.sep+'bal_train_norm.csv')
+dtrain = pd.read_csv('..'+os.sep+'..'+os.sep+'data'+os.sep+
+                     'bal_train_norm.csv')
+dtest = pd.read_csv('..'+os.sep+'..'+os.sep+'data'+os.sep+
+                    'bal_train_norm.csv')
 
 # Obtener una pequeña partición de evaluación a partir del conjunto de test
 dtest, deval = train_test_split(dtest,train_size=0.9,stratify=dtest['label'])
@@ -52,7 +54,7 @@ params = {
     'max_depth': 20, # Profundidad máxima de árbol
     'verbosity': 1, # 0 (silent), 1 (warning), 2 (info), 3 (debug)        
     'device' : 'cuda', # Entrenamiento en GPU CUDA  
-    'eval_metric':'logloss'  
+    'eval_metric':'error'  
 }
 
 # Crear el modelo
@@ -72,7 +74,7 @@ print(f'Tiempo de entrenamiento: {t_train:2f}')
 #Evaluar modelo con datos de test
 print('Evaluando el modelo...')
 predictions = xgb_model.predict(dtest)
-# Para valores de probabilidad de clase 1 mayor que 0.5 se predice la calse 1 y 0 en cualquier otro caso
+# Para valores de probabilidad de clase 1 mayor que 0.5 se predice la clase 1
 predictions = [1 if i > .5 else 0 for i in predictions]
 
 # Obtener y mostrar métricas de rendimiento
@@ -86,6 +88,6 @@ model_utils.pr_roc_curves(predictions, test_targets)
 
 # Guardar el modelo. Descomentar para guardar el modelo.
 '''
-with open('xgb_model_bc_logloss.pkl', 'wb') as file:
-    pickle.dump(xgb_model, file)
+model_utils.save_model('..' + os.sep + 'Modelos entrenados' + os.sep + 
+                       'xgb_model_bc_error.pkl', xgb_model)
 '''

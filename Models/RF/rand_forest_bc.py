@@ -25,8 +25,10 @@ no se quieran guardar.
 
 # Carga de datos
 print('Cargando datos...')
-train_data = pd.read_csv('..' + os.sep + '..' + os.sep + 'data' + os.sep + 'bal_train_norm.csv')
-test_data = pd.read_csv('..' + os.sep + '..' + os.sep + 'data' + os.sep + 'bal_test_norm.csv')
+train_data = pd.read_csv('..' + os.sep + '..' + os.sep + 'data' + os.sep + 
+                         'bal_train_norm.csv')
+test_data = pd.read_csv('..' + os.sep + '..' + os.sep + 'data' + os.sep + 
+                        'bal_test_norm.csv')
 
 # Obtener etiquetas targets
 y_train = train_data.pop('label')
@@ -41,7 +43,8 @@ class_w = {0: 1/(2*class_0), 1: 1/(2*class_1)}
 
 # Crear el modelo
 print('Creando el modelo...')
-rfc = RandomForestClassifier(n_estimators=250, class_weight=class_w, max_depth=30, random_state=24, criterion='log_loss', n_jobs=8)
+rfc = RandomForestClassifier(n_estimators=250, class_weight=class_w, max_depth=30, 
+                             random_state=24, criterion='gini', n_jobs=8)
 
 #Obtener tiempo inicial
 t_ini = time.time()
@@ -70,6 +73,6 @@ model_utils.pr_roc_curves(predictions, y_test)
 
 # Guardar el modelo entrenado. Descomentar para guardar el modelo.
 '''
-with open('rfc_model_bc_entropy.pkl', 'wb') as file:
-    pickle.dump(rfc, file)
+model_utils.save_model('..' + os.sep + 'Modelos entrenados' + os.sep + 
+                       'rfc_model_bc_gini.pkl', rfc)
 '''

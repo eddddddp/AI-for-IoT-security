@@ -12,11 +12,11 @@ muestra aleatoria de los registros usados en validación.
 '''
 
 # Cargar el modelo
-with open('..' + os.sep + 'Modelos entrenados' + os.sep +'xgb_model_bc_logloss.pkl', 'rb') as file:
-    model = pickle.load(file)
-
+model = model_utils.load_model('..' + os.sep + 'Modelos entrenados' + os.sep +
+                               'xgb_model_bc_logloss.pkl')
 # Cargar los datos
-data = pd.read_csv('..' + os.sep + '..' + os.sep + 'data' + os.sep + 'bal_test_norm.csv')
+data = pd.read_csv('..' + os.sep + '..' + os.sep + 'data' + os.sep + 
+                   'bal_test_norm.csv')
 
 # Obtener muestra
 sample_data = data.sample(1000)

@@ -1,3 +1,4 @@
+import os, pickle
 from sklearn.feature_selection import SelectKBest, chi2
 from sklearn.metrics import auc, confusion_matrix, accuracy_score, classification_report, ConfusionMatrixDisplay, precision_recall_curve, roc_curve
 import matplotlib.pyplot as plt
@@ -72,3 +73,18 @@ def pr_roc_curves(predictions, y_test):
     plt.title('Curva ROC')
     plt.legend(loc="lower right")
     plt.show()
+
+'''
+Función para guardar modelos como objetos serializados
+'''
+def save_model(path_file, model):
+    with open(path_file, 'wb') as file:
+        pickle.dump(model, file)
+
+'''
+Función para la carga de modelos guardados como objetos serializados.
+'''
+def load_model(path_file):
+    with open(path_file, 'rb') as file:
+        model = pickle.load(file)
+    return model
