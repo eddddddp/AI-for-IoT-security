@@ -30,7 +30,7 @@ print('Cargando datos...')
 dtrain = pd.read_csv('..'+os.sep+'..'+os.sep+'data'+os.sep+
                      'bal_train_norm.csv')
 dtest = pd.read_csv('..'+os.sep+'..'+os.sep+'data'+os.sep+
-                    'bal_train_norm.csv')
+                    'bal_test_norm.csv')
 
 # Obtener una pequeña partición de evaluación a partir del conjunto de test
 dtest, deval = train_test_split(dtest,train_size=0.9,stratify=dtest['label'])
