@@ -5,7 +5,7 @@
 </p>
 
 ***
-
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/31ed04154e2f48cc9bb625c1146d2447)](https://app.codacy.com/gh/eddddddp/AI-for-IoT-security/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 ## Introducción
 
 Este Trabajo de Fin de Grado (TFG) se centra en la seguridad en las tecnologías de comunicación IoT. 
